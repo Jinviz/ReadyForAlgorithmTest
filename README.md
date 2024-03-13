@@ -1,4 +1,4 @@
-## 🎯Goals: Achive 100-day [BOJ]Gold
+## 🎯Goal: Achieve Gold Rating in 100 days
 
 ### Commit Rule
 ```
