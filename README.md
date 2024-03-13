@@ -1,4 +1,4 @@
-## 1일 1커밋 목표
+## Goals: Achive 100-day gold
 
 ### Commit Rule
 ```
