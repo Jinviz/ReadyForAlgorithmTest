@@ -1,4 +1,4 @@
-## Goals: Achive 100-day [BOJ]Gold
+## 🎯Goals: Achive 100-day [BOJ]Gold
 
 ### Commit Rule
 ```
