@@ -1,4 +1,4 @@
-# 체스 N개가 놓일 수 있는 영역 선택 + 서로 잡을 수 없는 위치의 조건 
+체스 N개가 놓일 수 있는 영역 선택 + 서로 잡을 수 없는 위치의 조건 
 N = int(input())
 def backtracking(cnt, visited):
     global case
@@ -33,5 +33,3 @@ case = 0
 visit_board = [[0 for _ in range(N)] for _ in range(N)]   # 중복과 순서없이 체스 N개가 놓일 수 있는 체스판 영역 선택
 
 backtracking(0, visit_board)
-
-print(case)
