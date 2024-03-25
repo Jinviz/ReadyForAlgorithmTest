@@ -1,4 +1,4 @@
-체스 N개가 놓일 수 있는 영역 선택 + 서로 잡을 수 없는 위치의 조건 
+# 체스 N개가 놓일 수 있는 영역 선택 + 서로 잡을 수 없는 위치의 조건 
 N = int(input())
 def backtracking(cnt, visited):
     global case
