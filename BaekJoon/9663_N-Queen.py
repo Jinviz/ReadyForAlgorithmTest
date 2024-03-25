@@ -2,11 +2,32 @@
 from itertools import combinations
 
 N = int(input())
-board_num = []
-for i in range(N*N):
-    board_num.append(i)
-num = list(combinations(board_num, N)) # 중복과 순서없이 체스 N개가 놓일 수 있는 체스판 영역 선택
-print(num)
+visit = [[0 for _ in range(N)] for _ in range(N)]# 중복과 순서없이 체스 N개가 놓일 수 있는 체스판 영역 선택
+count = 0
+direction = [-1,0,1]
+case = []
+def backtracking(current, cnt, visit):
+    if cnt == N:
+        return visited
+    # 해당 보드영역 방문 처리
+    a, b = divmod(current, N)
+    visited = visit
+    visited[a][b] = 1
+    
+    for dx in direction:
+        for dy in direction:
+            if 0 <= a+dx < N and 0 <= b+dy < N: # 보드판 벗어나기 방지
+                if dx != 0 and dy != 0: # 제자리 머물기 제외
+                    if visited[a+dx][b+dy] == 0:    # 방문한 영역 제외
+                        backtracking(N*(a+dx)+b+dy, cnt+1, visited)
+
+for n in range(N):
+    case.append(backtracking(n,0,visit))
+
+result = set(case)
+print(len(result))
+
+
 # board = [[0] *N] *N 
 
 # # 퀸의 활동 영역 1로 처리
