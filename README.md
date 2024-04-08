@@ -1,4 +1,4 @@
-## 🎯Goal: Achieve Gold Rating in 100 days
+## 🎯Goal: Achieve Gold Rating in 100 days (3/12~)
 
 ### Commit Rule
 ```
