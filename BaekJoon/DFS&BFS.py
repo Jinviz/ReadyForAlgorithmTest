@@ -9,7 +9,7 @@ def dfs(g, v, visited):
         if visited[node] == False:
             dfs(g, node, visited)
 
-visited = [False for _ in range(N)]
+visited = [False for _ in range(N+1)]
 dfs(node_list, 1, visited)
 
 # bfs
@@ -29,5 +29,5 @@ def bfs(graph, start, visited):
                 queue.append(i)
                 visited[i] = True
 
-visited = [False for _ in range(N)]
+visited = [False for _ in range(N+1)]
 bfs(node_list, 1, visited)
