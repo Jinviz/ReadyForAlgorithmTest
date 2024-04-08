@@ -1,24 +1,28 @@
+# 양방향 조건 (그래프)
+# 작은 숫자 먼저 방문
+
 from collections import deque
 
 info = list(map(int, input().split()))
 graph = [[] for _ in range(info[0]+1)]
 link_info = [list(map(int, input().split())) for _ in range(info[1])]
 
-for l in link_info:
-    graph[l[0]].append(l[1])
+for link in link_info:
+    graph[link[0]].append(link[1])
+    graph[link[1]].append(link[0])
+    graph[link[0]].sort()
+    graph[link[1]].sort()
 
-bfs_visited, dfs_visited = [False, False for _ in range(info[0])] * 2
-bfs_result, dfs_result = [] * 2
+bfs_visited, dfs_visited = [False for _ in range(info[0]+1)],[False for _ in range(info[0]+1)] 
 
 # dfs
 def dfs(g, start, visited):
     visited[start] = True
-    bfs_result.append(start)
+    print(start, end= ' ')
 
-    for node  in g[start]: 
+    for node in g[start]: 
         if visited[node] == False:
-            bfs(g, node, visited)
-
+            dfs(g, node, visited)
 # bfs
 def bfs(g, start, visited):
     queue = deque([start])
@@ -26,6 +30,13 @@ def bfs(g, start, visited):
 
     while queue:
         v = queue.popleft()
-        bfs_result.append(v)
+        print(v, end= ' ')
+        for i in g[v]:
+            if not visited[i]:
+                queue.append(i)
+                visited[i] = True
 
-# 낮은 순서대로 접근은 오름차순 정렬 내장함수 사용해야 함
+dfs(graph, info[2], dfs_visited)
+print()
+bfs(graph, info[2], bfs_visited)
+
