@@ -8,12 +8,9 @@
 ```
 <br/>
 
-### Input Templete
+### Templete
 ```
-n = int(input())
-s = str(input())  
-
-n, m, k = list(map(int, input().split()))
-data = list(map(int,input().split()))
 data = sys.stdin.readline.rstrip()
+
+sys.setrecursionlimit(10000)
 ```
