@@ -13,16 +13,16 @@ for _ in range(case):
     cabbage = [tuple(map(int, input().split())) for _ in range(c)]
     location.append(cabbage)
 
-# 케이스별 M x N 땅(ground) 빈 리스트 생성 
-ground = []
+# 케이스별 M x N 땅(total_ground) 빈 리스트 생성 
+total_ground = []
 for c in range(case): 
     dump = [[0 for _ in range(m[c])] for _ in range(n[c])]
-    ground.append(dump)
+    total_ground.append(dump)
 
-# 빈 ground에 배추 위치 표시
+# 빈 total_ground에 배추 위치 표시
 for c in range(case):
     for point in location[c]:
-        ground[c][point[1]][point[0]] = 1 
+        total_ground[c][point[1]][point[0]] = 1 
 
 
 # 방문 리스트 생성 / 길이: 튜플로 이루어진 리스트의 길이
@@ -36,16 +36,12 @@ dy = [0,0,1,-1]
 
 # DFS 검사
 for state in range(case):
-    cabbageList = location[state]
-    queue = deque([location[state][0]])    # location[n] = (x,y)
+    cabbage = location[state][0]
+    ground = total_ground[state]
+    queue = deque([ground[]])    # cabbageList[0] = (x,y) 튜플타입
 
     while queue:
-        node = queue.popleft()
         for n in range(4):
-            nx = node[0] + dx[n]
-            ny = node[1] + dy[n]
-            if tuple((nx,ny)) in cabbageList:
-              # 이러면 발견한 튜플의 위치를 몰라서 안될 듯
 
 
         
