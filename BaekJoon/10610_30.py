@@ -1,15 +1,13 @@
+from itertools import permutations
 N = input()
 num = []
+sum = 0
 for n in N:
     num.append(int(n))
+    sum += int(n)
 num.sort(reverse=True)
-current = 0
 
-if 0 in num:
-    print(-1)
+if sum % 3 == 0 and num[-1] == 0:
+    print("".join(map(str, num)))
 else:
-    for 
-    current = int("".join(num))
-    if int("".join(num)) % 30 == 0:
-        print(current)
-        break
+    print(-1)
