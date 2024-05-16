@@ -1,26 +1,22 @@
 N, M = map(int, input().split())
 number = [str(n) for n in range(1,N+1)]
+print(number)
 case = list()
 
-def progression(first, excep):
+def progression(first, num):
     if len(case) == M:
-        result = ' '.join(case)
+        result = " ".join(case)
         print(result)
-        return
+        case.pop()
     
     else:
-        if first == True:
-            for n in number:
-                case.append(n)
-                progression(False, n)
+        for n in num:
+            case.append(n)
+            print(case)
+            num.remove(n)
+            progression(False, num)
 
-        else:
-            for n in number:
-                if n != excep:
-                    case.append(n)
-                    progression(False, excep)
-
-progression(True, '')
+progression(True, number)
 
     
         
