@@ -13,4 +13,3 @@ for _ in range(N):
         else:
             same -= 1
     print('YES' if same == 0 else 'NO')
-        
