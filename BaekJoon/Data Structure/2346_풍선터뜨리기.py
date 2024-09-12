@@ -4,20 +4,23 @@ import sys
 input = sys.stdin.readline
 N = int(input())
 balloons = list(map(int, input().split()))
+# print(balloons)
 next = 0
 result = []
 
 def next_cal(n):
-    cal = (n + balloons[n])
-    result.append(balloons.pop(n))
-    if cal < 0:
-        next = len(balloons)-(abs(cal) % len(balloons)) - 1 
+    global next
+    result.append(n+1)
+    if balloons[n] < 0:
+        next = len(balloons)-(abs(balloons[n]) % len(balloons))
+        balloons.pop(n)
     else:
-        next = cal % len(balloons)
+        next = balloons[n] % len(balloons) 
+        balloons.pop(n)
 
 next_cal(0)
 
 for i in range(N-1):
-    next_cal(result[-1])
-    print(result)
+    next_cal(next)
+    # print(result)
     
