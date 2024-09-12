@@ -1,26 +1,18 @@
-from collections import deque
 import sys
-
+from collections import deque
 input = sys.stdin.readline
-N = int(input())
-balloons = list(map(int, input().split()))
-# print(balloons)
-next = 0
-result = []
 
-def next_cal(n):
-    global next
-    result.append(n+1)
-    if balloons[n] < 0:
-        next = len(balloons)-(abs(balloons[n]) % len(balloons))
-        balloons.pop(n)
-    else:
-        next = balloons[n] % len(balloons) 
-        balloons.pop(n)
+n = int(input())
+q = deque(enumerate(map(int, input().split())))
+ans = []
 
-next_cal(0)
+while q:
+    idx, paper = q.popleft()
+    ans.append(idx + 1)
 
-for i in range(N-1):
-    next_cal(next)
-    # print(result)
-    
+    if paper > 0:
+        q.rotate(-(paper - 1))
+    elif paper < 0:
+        q.rotate(-paper)
+
+print(' '.join(map(str, ans)))
