@@ -1,23 +1,19 @@
 import sys
 N  = int(input())
-case = [input().split() for _ in range(N)]
+case = [''.join(input().split()) for _ in range(N)]
 
-plain = "abcdefghijklmnopqrstuvwxyz"
-password = "wghuvijxpqrstacdebfklmnoyz"
+count = {}
 
-count = [{} for _ in range(N)]
-
-for c in case:
-    for i in c:
-        plain.index(i)
-
-
-for n, c in enumerate(case):
-    for text in c:
-        for t in text:
-            if not count[n][t]:
-                count[n][t] = 1
-            else:
-                count[n][t] += 1
-
-
+for per in case:
+    for p in per:
+        if p not in count:
+            count[p] = 1
+        else:
+            count[p] += 1
+    max_value = max(count.values())
+    max_value_key = [key for key, value in count.items() if value == max_value]
+    if len(max_value_key) > 1:
+        print('?')
+    else:
+        print(max_value_key[-1])
+    count = {}
