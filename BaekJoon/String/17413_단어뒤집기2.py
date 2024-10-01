@@ -28,3 +28,26 @@ if len(stack) > 0:
     reversed_S += ''.join(list(reversed(stack)))
 
 print(reversed_S)
+
+
+### 밑의 풀이는 정규표현식 풀이이다.
+# import re
+
+# r = re.compile('<[a-z ]+>|[a-z0-9 ]+')
+# regs = r.findall(input())
+
+
+# ans = ''
+# for x in regs:
+#     if x[0] == '<':
+#         ans += x
+#     else:
+#         temp = x.split(' ')
+#         rev = []
+#         for y in temp:
+#             y = y[::-1]
+#             rev.append(y)
+#         rev = " ".join(rev)
+#         ans += rev
+
+# print(ans)
