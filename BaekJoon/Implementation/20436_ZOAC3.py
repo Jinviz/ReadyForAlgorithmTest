@@ -1,7 +1,7 @@
 # 쿼터식 키보드 알파벳 위치
 keyboard = [
     ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
-    ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ''], 
+    ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'], 
     ['z', 'x', 'c', 'v', 'b', 'n', 'm']     
 ]
 
@@ -13,7 +13,7 @@ key_map = {
 
 l, r = input().split()
 alpha = input()
-consonant, vowels = [], [] 
+consonant, vowels = [l], [r] 
 time = 0
 
 for a in alpha:
@@ -21,7 +21,6 @@ for a in alpha:
         consonant.append(a) 
     else:
         vowels.append(a)
-
 def find_position(char):
     for i, row in enumerate(keyboard):
         if char in row:
@@ -31,14 +30,15 @@ def find_position(char):
 for n in range(1, len(consonant)):
     x1, y1 = find_position(consonant[n-1])
     x2, y2 = find_position(consonant[n])
-    distance = abs(x2 - x1) + abs(y2 - y1)
+    distance = abs(x2 - x1) + abs(y2 - y1) + 1
     time += distance
+    # print('L',time)
 
 for n in range(1, len(vowels)):
     x1, y1 = find_position(vowels[n-1])
     x2, y2 = find_position(vowels[n])
-    distance = abs(x2 - x1) + abs(y2 - y1)
+    distance = abs(x2 - x1) + abs(y2 - y1) + 1
     time += distance
+    # print('R',time)
 
-time += len(alpha)
 print(time)
