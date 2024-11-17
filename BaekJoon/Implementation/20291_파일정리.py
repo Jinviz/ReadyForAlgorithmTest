@@ -5,7 +5,6 @@ files = {}
 for _ in range(N):
     file = sys.stdin.readline().rstrip()
     dot = file.find('.')
-    print(file[dot+1:])
     if file[dot+1:] in files:
         files[file[dot+1:]] += 1
     else:
