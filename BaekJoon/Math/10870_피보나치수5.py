@@ -7,5 +7,9 @@ for n in range(2, N+1):
   pre1 = pre2
   pre2 = temp
 
-print(pre2)
-
+if(N==0):
+  print(0)
+elif(N==1):
+  print(1)
+else:
+  print(pre2)
